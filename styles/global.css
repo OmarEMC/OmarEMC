@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Rubik:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply box-border focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:outline-none focus-visible:rounded-md;
+}
+
+html,
+body,
+#__next {
+  @apply w-full h-full p-0 m-0 bg-gray-200 dark:bg-gray-700;
+}
