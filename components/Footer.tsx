@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
+import LangSelector from './LangSelector'
 
 interface FooterProps {
   prevPage?: string;
@@ -12,8 +13,9 @@ function Footer ({
 }: FooterProps) {
   return (
     <footer className="flex-initial flex border-t border-gray-400 border-opacity-80 p-4">
-      <div className="flex-1">
+      <div className="flex-1 flex">
         &copy; OmarEMC - {new Date().getFullYear()}
+        <LangSelector />
       </div>
 
       <div className="flex-initial flex items-center">

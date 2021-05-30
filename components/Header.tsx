@@ -1,7 +1,10 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
+import useTranslation from 'next-translate/useTranslation'
 
 function Header () {
+  const { t } = useTranslation('common')
+
   return (
     <header className="flex-initial w-full flex items-center p-3">
       <div className="flex-1 font-semibold text-lg mr-2">OmarEMC</div>
@@ -9,10 +12,10 @@ function Header () {
       <div className="flex">
         <span className="text-xl py-1 text-purple-400 font-bold">{'{'}</span>
         <NavLink href="/">
-          Inicio
+          {t('home')}
         </NavLink>
         <NavLink href="/projects">
-          Proyectos
+          {t('projects')}
         </NavLink>
         <span className="text-xl py-1 text-purple-400 font-bold">{'}'}</span>
       </div>

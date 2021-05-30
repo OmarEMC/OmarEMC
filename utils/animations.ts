@@ -5,6 +5,18 @@ type AnimationVariants = {
   [key in 'initial' | 'animate' | 'exit']: Variant
 }
 
+const scaleY: AnimationVariants = {
+  initial: {
+    scaleY: 0
+  },
+  animate: {
+    scaleY: 1
+  },
+  exit: {
+    scaleY: 0
+  }
+}
+
 const fadeIn: AnimationVariants = {
   initial: {
     opacity: 0
@@ -18,5 +30,6 @@ const fadeIn: AnimationVariants = {
 }
 
 export {
-  fadeIn
+  fadeIn,
+  scaleY
 }
