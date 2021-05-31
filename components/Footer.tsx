@@ -12,13 +12,14 @@ function Footer ({
   nextPage
 }: FooterProps) {
   return (
-    <footer className="flex-initial flex border-t border-gray-400 border-opacity-80 p-4">
-      <div className="flex-1 flex">
-        &copy; OmarEMC - {new Date().getFullYear()}
-        <LangSelector />
+    <footer className="flex-initial flex flex-col md:flex-row border-t border-gray-400 border-opacity-80 p-4">
+      <div className="flex-1 flex justify-between md:justify-start">
+        <span>&copy; OmarEMC - {new Date().getFullYear()}</span>
+
+        <div><LangSelector /></div>
       </div>
 
-      <div className="flex-initial flex items-center">
+      <div className="flex-initial flex items-center justify-between md:justify-end mt-3 md:mt-0">
         {prevPage && (
           <Link href={prevPage} passHref>
             <a className="font-semibold text-gray-700 font-mono flex items-center">
@@ -28,7 +29,7 @@ function Footer ({
           </Link>
         )}
         {prevPage && nextPage && (
-          <div className="text-gray-600 font-bold mx-2">-</div>
+          <div className="hidden md:block text-gray-600 font-bold mx-2">-</div>
         )}
         {nextPage && (
           <Link href={nextPage} passHref>
