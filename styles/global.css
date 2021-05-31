@@ -11,5 +11,5 @@
 html,
 body,
 #__next {
-  @apply w-full h-full p-0 m-0 bg-gray-200 dark:bg-gray-700;
+  @apply w-full h-full p-0 m-0 bg-gray-100 dark:bg-gray-700;
 }
