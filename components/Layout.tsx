@@ -2,11 +2,12 @@ import clsx from 'clsx'
 import { HTMLMotionProps, motion } from 'framer-motion'
 
 import Footer from '@/components/Footer'
-import Header from '@/components/Header'
+import Header, { HeaderProps } from '@/components/Header'
 
 interface LayoutProps extends HTMLMotionProps<'div'> {
   prevPage?: string;
   nextPage?: string;
+  headerProps?: HeaderProps;
 }
 
 function Layout ({
@@ -14,6 +15,7 @@ function Layout ({
   className,
   prevPage,
   nextPage,
+  headerProps,
   variants: customVariants = {}
 }: LayoutProps) {
   return (
@@ -23,11 +25,11 @@ function Layout ({
       exit="exit"
       className={clsx('flex flex-col w-full h-full relative', className)}
     >
-      <Header />
+      <Header {...headerProps} />
 
       <motion.div
         variants={customVariants}
-        className="w-full h-full flex-1"
+        className="w-full h-full flex-1 p-4"
       >
         {children}
       </motion.div>

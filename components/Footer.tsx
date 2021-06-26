@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
-import LangSelector from './LangSelector'
+import LangSelector from '@/components/LangSelector'
 
 interface FooterProps {
   prevPage?: string;
@@ -23,7 +23,7 @@ function Footer ({
         {prevPage && (
           <Link href={prevPage} passHref>
             <a className="font-semibold text-gray-700 font-mono flex items-center">
-              <FiArrowLeft className="inline-block w-4 h-4" />
+              <FiArrowLeft className="inline-block ml-1 w-4 h-4" />
               {prevPage}
             </a>
           </Link>
@@ -35,7 +35,7 @@ function Footer ({
           <Link href={nextPage} passHref>
             <a className="font-semibold text-gray-700 font-mono flex items-center">
               {nextPage}
-              <FiArrowRight className="inline-block w-4 h-4" />
+              <FiArrowRight className="inline-block ml-1 w-4 h-4" />
             </a>
           </Link>
         )}
