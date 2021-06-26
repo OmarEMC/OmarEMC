@@ -1,12 +1,12 @@
+import clsx from 'clsx'
+import Link from 'next/link'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { AnimatePresence, motion } from 'framer-motion'
 import useTranslation from 'next-translate/useTranslation'
-import i18nConfig from '../i18n.json'
 
+import i18nConfig from '../i18n.json'
 import { scaleY } from '@/utils/animations'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import clsx from 'clsx'
 
 const { locales } = i18nConfig
 const languages = {

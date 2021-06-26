@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
+
 import LangSelector from '@/components/LangSelector'
 
 interface FooterProps {
