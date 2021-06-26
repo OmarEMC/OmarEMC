@@ -22,7 +22,11 @@ function Home () {
         </motion.div>
 
         <div className="font-semibold text-2xl">
-          {lang === 'es' && t('developer')}
+          {lang === 'es' && (
+            <span className="inline-block first-letter:uppercase">
+              {t('developer')}
+            </span>
+          )}
           <h2 className="inline text-purple-400 text-4xl">Frontend</h2>
           {t('and')}
           <h2 className="inline text-purple-500 text-4xl">Backend</h2>
