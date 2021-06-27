@@ -16,24 +16,24 @@ function Home () {
       headerProps={{ showTitle: false }}
     >
       <div className="w-11/12 h-screen mx-auto">
-        <motion.div className="text-8xl text-gray-800 font-bold" layoutId="omaremc-title">
+        <motion.div className="text-5xl sm:text-8xl text-gray-800 font-bold" layoutId="omaremc-title">
           Omar
           <span className="text-purple-700">EMC</span>
         </motion.div>
 
-        <div className="font-semibold text-2xl">
+        <div className="font-semibold text-xl sm:text-2xl">
           {lang === 'es' && (
             <span className="inline-block first-letter:uppercase">
               {t('developer')}
             </span>
           )}
-          <h2 className="inline text-purple-400 text-4xl">Frontend</h2>
+          <h2 className="inline text-purple-400 text-2xl sm:text-4xl">Frontend</h2>
           {t('and')}
-          <h2 className="inline text-purple-500 text-4xl">Backend</h2>
+          <h2 className="inline text-purple-500 text-2xl sm:text-4xl">Backend</h2>
           {lang === 'en' && t('developer')}.
         </div>
 
-        <div className="text-xl text-gray-800 font-medium mt-2">
+        <div className="text-lg sm:text-xl text-gray-800 font-medium mt-2">
           <Trans
             i18nKey="home:description"
             // eslint-disable-next-line react/jsx-key
