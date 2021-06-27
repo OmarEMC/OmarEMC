@@ -106,6 +106,15 @@ export const languages: Language[] = [
     link: 'https://sass-lang.com/'
   },
   {
+    name: 'TailwindCSS',
+    style: {
+      border: '#06B6D4'
+    },
+    percentage: 85,
+    img: '/images/tailwind-logo.png',
+    link: 'https://tailwindcss.com/'
+  },
+  {
     name: 'Typescript',
     style: {
       border: '#3178C6'
