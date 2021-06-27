@@ -8,6 +8,7 @@
     "build": "next build",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
+    "lint:next": "next lint",
     "prepare": "husky install && npx husky add .husky/pre-commit \"npm run lint\""
   },
   "repository": {
@@ -45,6 +46,7 @@
     "@typescript-eslint/parser": "^4.28.0",
     "autoprefixer": "^10.2.5",
     "eslint": "^7.29.0",
+    "eslint-config-next": "^11.0.1",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
