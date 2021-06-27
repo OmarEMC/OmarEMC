@@ -3,7 +3,6 @@ import Trans from 'next-translate/Trans'
 import useTranslation from 'next-translate/useTranslation'
 
 import Layout from '@/components/Layout'
-import { fadeIn } from '@/utils/animations'
 import Parenthesis from '@/components/Parenthesis'
 import LangCard from '@/components/LangCard'
 import { languages } from '@/utils/static-data'
@@ -14,7 +13,6 @@ function Home () {
   return (
     <Layout
       nextPage="/projects"
-      variants={fadeIn}
       headerProps={{ showTitle: false }}
     >
       <div className="w-11/12 mx-auto">

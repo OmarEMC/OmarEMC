@@ -18,7 +18,7 @@ function Header ({
     <header className="flex-initial w-full flex items-center p-3">
       {showTitle
         ? (
-          <motion.div layoutId="omaremc-title" className="flex-1 font-semibold text-lg mr-2">OmarEMC</motion.div>
+          <motion.div transition={{ type: 'just' }} layoutId="omaremc-title" className="flex-1 font-semibold text-lg mr-2">OmarEMC</motion.div>
         )
         : (
           <div className="flex-1"></div>
