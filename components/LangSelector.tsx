@@ -1,12 +1,13 @@
 import clsx from 'clsx'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { AnimatePresence, motion } from 'framer-motion'
 import useTranslation from 'next-translate/useTranslation'
 
 import i18nConfig from '../i18n.json'
 import { scaleY } from '@/utils/animations'
+import useClickOutside from '@/hooks/useClickOutside'
 
 const { locales } = i18nConfig
 const languages = {
@@ -27,12 +28,14 @@ const languages = {
 }
 
 function LangSelector () {
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState<boolean>(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+  useClickOutside(containerRef, () => setShow(false))
   const { lang } = useTranslation()
   const router = useRouter()
 
   return (
-    <div className="w-full lg:max-w-sm mx-3">
+    <div className="w-full lg:max-w-sm mx-3" ref={containerRef}>
       <div className="relative">
         <button className="flex items-center px-4 bg-white border border-gray-800 focus:outline-none" onClick={() => setShow(!show)}>
           <img
