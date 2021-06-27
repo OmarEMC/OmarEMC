@@ -29,7 +29,7 @@ function Layout ({
 
       <motion.div
         variants={customVariants}
-        className="w-full h-full flex-1 p-4"
+        className="w-full flex-1 p-4"
       >
         {children}
       </motion.div>
