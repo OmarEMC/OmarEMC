@@ -3,14 +3,16 @@ import clsx from 'clsx'
 import { Language } from '@/utils/static-data'
 
 interface LangCardProps {
-  lang: Language;
+  lang: Language | undefined;
   className?: string;
 }
 
 function LangCard ({ lang, className }: LangCardProps) {
+  if (!lang) return null
+
   return (
     <div
-      className={clsx('flex transition duration-300 relative overflow-hidden border-2 bg-white shadow rounded-lg sm:p-3 md:p-5 hover:shadow-lg', className)}
+      className={clsx('flex transition duration-300 relative overflow-hidden border-2 bg-white shadow rounded-lg sm:p-3 md:p-4 hover:shadow-lg', className)}
       style={{
         borderColor: lang.style?.border || '#ffffff',
         opacity: lang.style?.opacity || 1

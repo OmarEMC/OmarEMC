@@ -42,7 +42,7 @@ function Home () {
           <Trans
             i18nKey="home:description"
             // eslint-disable-next-line react/jsx-key
-            components={[<Parenthesis />]}
+            components={[<Parenthesis />, <br />]}
           />
         </div>
 
@@ -50,6 +50,21 @@ function Home () {
           {languages.map((lang) => (
             <LangCard lang={lang} key={lang.name} />
           ))}
+        </section>
+
+        <hr className="mt-4 h-0.5 bg-gradient-to-r from-black" />
+
+        <section className="mt-2">
+          <h3 id="my_main" className="text-7xl font-medium font-francis underline bg-clip-text text-gray-900">
+            {t('home:my-main.title')}
+          </h3>
+          <p className="mt-2 text-lg sm:text-2xl text-gray-800 font-medium">{t('home:my-main.description')}</p>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-4">
+            {['Typescript', 'ReactJS', 'NextJS', 'TailwindCSS', 'Sass'].map((l) => (
+              <LangCard lang={languages.find((lang) => lang.name === l)} className="md:p-0" key={l} />
+            ))}
+          </div>
         </section>
       </div>
     </Layout>
