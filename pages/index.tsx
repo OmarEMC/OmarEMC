@@ -41,7 +41,7 @@ function Home () {
           <section className="md:col-span-8">
             <motion.div className="text-5xl sm:text-8xl text-gray-800 font-bold" layoutId="omaremc-title">
               Omar
-              <span className="text-purple-700">EMC</span>
+              <span className="text-primary-700">EMC</span>
             </motion.div>
 
             <HomeDescription />

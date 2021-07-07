@@ -25,14 +25,14 @@ function Header ({
         )}
 
       <div className="flex">
-        <span className="text-xl py-1 text-purple-400 font-bold">{'{'}</span>
+        <span className="text-xl py-1 text-primary-400 font-bold">{'{'}</span>
         <NavLink href="/">
           {t('home')}
         </NavLink>
         <NavLink href="/projects">
           {t('projects')}
         </NavLink>
-        <span className="text-xl py-1 text-purple-400 font-bold">{'}'}</span>
+        <span className="text-xl py-1 text-primary-400 font-bold">{'}'}</span>
       </div>
     </header>
   )
@@ -52,7 +52,7 @@ function NavLink ({
       <a className={clsx(
         'font-semibold text-lg transition px-2 py-1 active:bg-gray-600 hover:bg-gray-800 hover:text-white',
         {
-          'font-bold underline text-purple-800': router.pathname.split('/')[1] === href.split('/')[1]
+          'font-bold underline text-primary-800': router.pathname.split('/')[1] === href.split('/')[1]
         }
       )}>
         {children}

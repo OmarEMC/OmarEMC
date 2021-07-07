@@ -10,9 +10,9 @@ function HomeDescription () {
           {t('developer')}
         </span>
       )}
-      <h2 className="inline text-purple-400 text-2xl sm:text-4xl">Frontend</h2>
+      <h2 className="inline text-primary-400 text-2xl sm:text-4xl">Frontend</h2>
       {t('and')}
-      <h2 className="inline text-purple-500 text-2xl sm:text-4xl">Backend</h2>
+      <h2 className="inline text-primary-500 text-2xl sm:text-4xl">Backend</h2>
       {lang === 'en' && (
         <span className="inline-block sm:inline">
           {t('developer')}
