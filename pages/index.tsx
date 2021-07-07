@@ -32,6 +32,7 @@ function Home () {
                 draggable={false}
                 placeholder="blur"
                 className="rounded-lg"
+                alt="Omar Moreno photo"
               />
               <Decoration.One className="absolute -bottom-4 -right-10 w-28 h-28" />
               <Decoration.Two className="absolute -top-12 -left-10 w-28 h-28 rotate-12" />
