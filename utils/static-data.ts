@@ -145,5 +145,15 @@ export const languages: Language[] = [
     percentage: 85,
     img: '/images/nextjs-logo.png',
     link: 'https://nextjs.org'
+  },
+  {
+    name: 'socket.io',
+    style: {
+      border: '#000000'
+    },
+    category: 'backend',
+    percentage: 80,
+    img: '/images/socket-io-logo.png',
+    link: 'https://socket.io/'
   }
 ]
