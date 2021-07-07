@@ -26,7 +26,7 @@ function Home () {
       <div className="w-11/12 mx-auto">
         <div className="grid md:grid-cols-12">
           <div className="md:block md:col-span-4 md:py-8 pr-8">
-            <div className="relative">
+            <div className="relative w-11/12 sm:w-6/12 md:w-full 2xl:w-7/12">
               <Image
                 src={photo}
                 draggable={false}
@@ -34,8 +34,8 @@ function Home () {
                 className="rounded-lg"
                 alt="Omar Moreno photo"
               />
-              <Decoration.One className="absolute -bottom-4 -right-10 w-28 h-28" />
-              <Decoration.Two className="absolute -top-12 -left-10 w-28 h-28 rotate-12" />
+              <Decoration.One className="absolute -bottom-4 -right-10 w-20 h-20 xs:w-28 xs:h-28" />
+              <Decoration.Two className="absolute -top-12 -left-10 w-20 h-20 xs:w-28 xs:h-28 rotate-12" />
             </div>
           </div>
 
