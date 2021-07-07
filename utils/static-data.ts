@@ -13,7 +13,7 @@ export interface Language {
 
 export const languages: Language[] = [
   {
-    name: 'Javacript',
+    name: 'Javascript',
     style: {
       border: '#F7DF1E'
     },
