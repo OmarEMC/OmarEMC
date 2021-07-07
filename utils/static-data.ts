@@ -1,9 +1,10 @@
 export interface Language {
   name: string;
   link: string;
-  title?: string;
   img: string;
   percentage: number;
+  category?: 'backend' | 'frontend' | 'general';
+  title?: string;
   style?: {
     border: string;
     opacity?: number;
@@ -16,6 +17,7 @@ export const languages: Language[] = [
     style: {
       border: '#F7DF1E'
     },
+    category: 'frontend',
     percentage: 75,
     img: '/images/js-logo.png',
     link: 'https://developer.mozilla.org/es/docs/Web/JavaScript'
@@ -25,6 +27,7 @@ export const languages: Language[] = [
     style: {
       border: '#E44C25'
     },
+    category: 'frontend',
     percentage: 80,
     img: '/images/html-logo.png',
     link: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
@@ -34,6 +37,7 @@ export const languages: Language[] = [
     style: {
       border: '#3890D0'
     },
+    category: 'frontend',
     percentage: 90,
     img: '/images/css-logo.png',
     link: 'https://developer.mozilla.org/es/docs/Web/CSS'
@@ -43,6 +47,7 @@ export const languages: Language[] = [
     style: {
       border: '#73C62B'
     },
+    category: 'backend',
     percentage: 90,
     img: '/images/nodejs-logo.png',
     link: 'https://nodejs.org'
@@ -52,6 +57,7 @@ export const languages: Language[] = [
     style: {
       border: '#73C62B'
     },
+    category: 'backend',
     percentage: 95,
     img: '/images/express-no-logo.png',
     link: 'https://expressjs.com'
@@ -61,6 +67,7 @@ export const languages: Language[] = [
     style: {
       border: '#13AA52'
     },
+    category: 'backend',
     percentage: 90,
     img: '/images/mongo-logo.png',
     link: 'https://www.mongodb.com/'
@@ -71,6 +78,7 @@ export const languages: Language[] = [
       border: '#A91E50',
       opacity: 0.5
     },
+    category: 'backend',
     title: 'I don\'t recommend ejs in a real project. (or any template engine for ExpressJS)',
     percentage: 100,
     img: '/images/ejs-logo.png',
@@ -81,6 +89,7 @@ export const languages: Language[] = [
     style: {
       border: '#61DAFB'
     },
+    category: 'frontend',
     percentage: 85,
     img: '/images/react-logo.png',
     link: 'https://reactjs.org/'
@@ -91,6 +100,7 @@ export const languages: Language[] = [
       border: '#244979',
       opacity: 0.8
     },
+    category: 'frontend',
     percentage: 65,
     title: 'Personally i don\'t like to use Less.',
     img: '/images/less-logo.png',
@@ -101,6 +111,7 @@ export const languages: Language[] = [
     style: {
       border: '#BF4080'
     },
+    category: 'frontend',
     percentage: 75,
     img: '/images/sass-logo.png',
     link: 'https://sass-lang.com/'
@@ -110,6 +121,7 @@ export const languages: Language[] = [
     style: {
       border: '#06B6D4'
     },
+    category: 'frontend',
     percentage: 85,
     img: '/images/tailwind-logo.png',
     link: 'https://tailwindcss.com/'
@@ -119,6 +131,7 @@ export const languages: Language[] = [
     style: {
       border: '#3178C6'
     },
+    category: 'general',
     percentage: 75,
     img: '/images/ts-logo.png',
     link: 'https://www.typescriptlang.org/'
@@ -128,6 +141,7 @@ export const languages: Language[] = [
     style: {
       border: '#000000'
     },
+    category: 'frontend',
     percentage: 85,
     img: '/images/nextjs-logo.png',
     link: 'https://nextjs.org'
