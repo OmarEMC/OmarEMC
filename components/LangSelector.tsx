@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import Link from 'next/link'
-import { useRef, useState } from 'react'
 import { useRouter } from 'next/router'
+import { useRef, useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import useTranslation from 'next-translate/useTranslation'
 
@@ -28,11 +28,23 @@ const languages = {
 }
 
 function LangSelector () {
+  const router = useRouter()
+  const { lang } = useTranslation()
   const [show, setShow] = useState<boolean>(false)
   const containerRef = useRef<HTMLDivElement>(null)
-  useClickOutside(containerRef, () => setShow(false))
-  const { lang } = useTranslation()
-  const router = useRouter()
+
+  const closeDropdown = () => {
+    setShow(false)
+  }
+
+  useClickOutside(containerRef, closeDropdown)
+  useEffect(() => {
+    router.events.on('routeChangeComplete', closeDropdown)
+
+    return () => {
+      router.events.off('routeChangeComplete', closeDropdown)
+    }
+  }, [])
 
   return (
     <div className="w-full lg:max-w-sm mx-3" ref={containerRef}>
