@@ -1,3 +1,8 @@
+export interface ISocialItem {
+  link: string;
+  title: string;
+}
+
 export interface Language {
   name: string;
   link: string;
