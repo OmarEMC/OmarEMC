@@ -3,16 +3,17 @@ import { motion } from 'framer-motion'
 import Trans from 'next-translate/Trans'
 import useTranslation from 'next-translate/useTranslation'
 
+import Title from '@/components/Title'
 import Layout from '@/components/Layout'
-import Parenthesis from '@/components/Parenthesis'
+import Divider from '@/components/Divider'
 import LangCard from '@/components/LangCard'
 import { languages } from '@/utils/static-data'
+import Decoration from '@/components/Decoration'
+import Parenthesis from '@/components/Parenthesis'
+import LangsSection from '@/components/LangsSection'
+import HomeDescription from '@/components/HomeDescription'
 
 import photo from '../public/images/photo.jpg'
-import HomeDescription from '@/components/HomeDescription'
-import Divider from '@/components/Divider'
-import Title from '@/components/Title'
-import LangsSection from '@/components/LangsSection'
 
 function Home () {
   const { t } = useTranslation('common')
@@ -25,12 +26,16 @@ function Home () {
       <div className="w-11/12 mx-auto">
         <div className="grid md:grid-cols-12">
           <div className="md:block md:col-span-4 md:py-8 pr-8">
-            <Image
-              src={photo}
-              draggable={false}
-              placeholder="blur"
-              className="rounded-lg"
-            />
+            <div className="relative">
+              <Image
+                src={photo}
+                draggable={false}
+                placeholder="blur"
+                className="rounded-lg"
+              />
+              <Decoration.One className="absolute -bottom-4 -right-10 w-28 h-28" />
+              <Decoration.Two className="absolute -top-12 -left-10 w-28 h-28 rotate-12" />
+            </div>
           </div>
 
           <section className="md:col-span-8">
