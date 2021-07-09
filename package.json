@@ -29,18 +29,24 @@
   },
   "homepage": "https://github.com/OmarEMC/OmarEMC#readme",
   "dependencies": {
+    "@octokit/core": "^3.5.1",
     "clsx": "^1.1.1",
+    "cors": "^2.8.5",
     "focus-visible": "^5.2.0",
     "framer-motion": "^4.1.17",
     "next": "^11.0.1",
+    "next-connect": "^0.10.1",
     "next-seo": "^4.26.0",
     "next-themes": "^0.0.15",
     "next-translate": "^1.0.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "swr": "^0.5.6",
+    "timeago-react": "^3.0.3"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.11",
     "@types/react": "^17.0.13",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
