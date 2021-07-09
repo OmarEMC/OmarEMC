@@ -35,7 +35,7 @@ const handler = nc<NextApiRequest, NextApiResponse>({
   }
 })
   .use(cors({
-    origin: process.env.NODE_ENV === 'development' ? 'http://localhost:1310' : 'https://omarems.tech'
+    origin: process.env.NODE_ENV === 'development' ? 'http://localhost:1310' : process.env.NEXT_PUBLIC_URL
   }))
   .get(async (_req, res) => {
     const repos = await octokit.request('GET /user/repos', {
