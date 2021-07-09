@@ -13,7 +13,7 @@ interface ProjectsPageProps {
 
 export const getStaticProps: GetStaticProps<ProjectsPageProps> = async () => {
   const res = await fetch(
-    `${process.env.NODE_ENV === 'development' ? 'http://localhost:1310' : process.env.NEXT_PUBLIC_URL}/posts`
+    `${process.env.NODE_ENV === 'development' ? 'http://localhost:1310' : process.env.NEXT_PUBLIC_URL}/api/projects`
   )
   const data = await res.json()
 
