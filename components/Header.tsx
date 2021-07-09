@@ -1,12 +1,15 @@
 import clsx from 'clsx'
 import Link from 'next/link'
-import { ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
-import { FiGithub, FiTwitter } from 'react-icons/fi'
+import { ReactNode, useState } from 'react'
+import { FiGithub, FiMenu, FiTwitter } from 'react-icons/fi'
 import useTranslation from 'next-translate/useTranslation'
 
+import Name from '@/components/Name'
 import SocialItem from '@/components/SocialItem'
+import MobileMenu from '@/components/MobileMenu'
+
 export interface HeaderProps {
   showTitle?: boolean;
 }
@@ -14,36 +17,34 @@ export interface HeaderProps {
 function Header ({
   showTitle = true
 }: HeaderProps) {
-  const { t } = useTranslation('common')
+  const [open, setOpen] = useState(false)
 
   return (
     <header className="flex-initial w-full flex items-center p-3">
       <div className="flex-1 flex items-center gap-2">
         {showTitle && (
-          <motion.div
-            transition={{ type: 'just' }}
-            layoutId="omaremc-title"
-            className="font-semibold text-lg mr-2"
-          >
-            OmarEMC
-          </motion.div>
+          <Name className="font-semibold text-lg mr-2" />
         )}
 
-        <motion.div layoutId="social" className="flex gap-2">
+        <motion.div layoutId="social" className="flex gap-2 z-10">
           <SocialItem title="Twitter" icon={FiTwitter} link="https://twitter.com/OmarEMC_" />
           <SocialItem title="Github" icon={FiGithub} link="https://github.com/OmarEMC" />
         </motion.div>
       </div>
 
-      <div className="flex">
-        <span className="text-xl py-1 text-primary-400 font-bold">{'{'}</span>
-        <NavLink href="/">
-          {t('home')}
-        </NavLink>
-        <NavLink href="/projects">
-          {t('projects')}
-        </NavLink>
-        <span className="text-xl py-1 text-primary-400 font-bold">{'}'}</span>
+      <div className="flex items-center">
+        <section className="sm:hidden">
+          <button onClick={() => setOpen(true)}>
+            <FiMenu className="w-6 h-6" />
+          </button>
+          <MobileMenu open={open} onClose={() => setOpen(false)} />
+        </section>
+
+        <section className="hidden sm:flex sm:gap-1">
+          <span className="text-xl py-1 text-primary-400 font-bold">{'{'}</span>
+          <NavLinks />
+          <span className="text-xl py-1 text-primary-400 font-bold">{'}'}</span>
+        </section>
       </div>
     </header>
   )
@@ -51,9 +52,11 @@ function Header ({
 
 function NavLink ({
   href,
-  children
+  children,
+  className
 }: {
   href: string;
+  className?: string;
   children: ReactNode;
 }) {
   const router = useRouter()
@@ -64,11 +67,22 @@ function NavLink ({
         'font-semibold text-lg transition px-2 py-1 active:bg-gray-600 hover:bg-gray-800 hover:text-white',
         {
           'font-bold underline text-primary-800': router.pathname.split('/')[1] === href.split('/')[1]
-        }
+        }, className
       )}>
         {children}
       </a>
     </Link>
+  )
+}
+
+export function NavLinks ({ className }: { className?: string; }) {
+  const { t } = useTranslation('common')
+
+  return (
+    <>
+      <NavLink href="/" className={className}>{t('home')}</NavLink>
+      <NavLink href="/projects" className={className}>{t('projects')}</NavLink>
+    </>
   )
 }
 

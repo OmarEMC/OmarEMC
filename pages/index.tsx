@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import Trans from 'next-translate/Trans'
 import useTranslation from 'next-translate/useTranslation'
 
@@ -14,6 +13,7 @@ import LangsSection from '@/components/LangsSection'
 import HomeDescription from '@/components/HomeDescription'
 
 import photo from '../public/images/photo.jpg'
+import Name from '@/components/Name'
 
 function Home () {
   const { t } = useTranslation('common')
@@ -40,10 +40,7 @@ function Home () {
           </div>
 
           <section className="md:col-span-8">
-            <motion.div className="text-5xl sm:text-8xl text-gray-800 font-bold" layoutId="omaremc-title">
-              Omar
-              <span className="text-primary-700">EMC</span>
-            </motion.div>
+            <Name className="text-5xl sm:text-8xl" />
 
             <HomeDescription />
 
