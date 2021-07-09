@@ -8,7 +8,8 @@ import ProjectCard from '@/components/ProjectCard'
 import RepositoryInterface from '@/utils/RepoInterface'
 
 interface ProjectsPageProps {
-  projects: RepositoryInterface[]
+  projects: RepositoryInterface[];
+  error?: string | undefined;
 }
 
 export const getStaticProps: GetStaticProps<ProjectsPageProps> = async () => {
@@ -17,10 +18,11 @@ export const getStaticProps: GetStaticProps<ProjectsPageProps> = async () => {
   )
   const data = await res.json()
 
-  if (!data) {
+  if (!data || data.error) {
     return {
       props: {
-        projects: []
+        projects: [],
+        error: data.error || undefined
       },
       revalidate: 60
     }
@@ -34,7 +36,7 @@ export const getStaticProps: GetStaticProps<ProjectsPageProps> = async () => {
   }
 }
 
-function Projects ({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
+function Projects ({ projects, error }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation()
 
   return (
@@ -59,6 +61,18 @@ function Projects ({ projects }: InferGetStaticPropsType<typeof getStaticProps>)
             ))
           )}
         </div>
+
+        {(!projects || !(projects.length > 0)) && !error && (
+          <h3 className="w-full underline text-center text-2xl text-primary-500 font-medium font-rubik">
+            {t('projects:no-projects')}
+          </h3>
+        )}
+
+        {error && (
+          <div className="p-4 selection:bg-red-500 selection:text-white border border-red-400 text-red-500 bg-white rounded-lg w-full font-mono">
+            <span className="font-semibold">API Error:</span> {error}
+          </div>
+        )}
       </div>
     </Layout>
   )
