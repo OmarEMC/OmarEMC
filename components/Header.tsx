@@ -82,6 +82,7 @@ export function NavLinks ({ className }: { className?: string; }) {
     <>
       <NavLink href="/" className={className}>{t('home')}</NavLink>
       <NavLink href="/projects" className={className}>{t('projects')}</NavLink>
+      <NavLink href="/contact" className={className}>{t('contact')}</NavLink>
     </>
   )
 }

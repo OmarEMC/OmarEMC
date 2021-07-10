@@ -1,7 +1,8 @@
-import Image from 'next/image'
 import Trans from 'next-translate/Trans'
 import useTranslation from 'next-translate/useTranslation'
 
+import Name from '@/components/Name'
+import Photo from '@/components/Photo'
 import Title from '@/components/Title'
 import Layout from '@/components/Layout'
 import Divider from '@/components/Divider'
@@ -11,9 +12,6 @@ import Decoration from '@/components/Decoration'
 import Parenthesis from '@/components/Parenthesis'
 import LangsSection from '@/components/LangsSection'
 import HomeDescription from '@/components/HomeDescription'
-
-import photo from '../public/images/photo.jpg'
-import Name from '@/components/Name'
 
 function Home () {
   const { t } = useTranslation('common')
@@ -27,13 +25,7 @@ function Home () {
         <div className="grid md:grid-cols-12">
           <div className="md:block md:col-span-4 md:py-8 pr-8">
             <div className="relative w-11/12 sm:w-6/12 md:w-full 2xl:w-7/12">
-              <Image
-                src={photo}
-                draggable={false}
-                placeholder="blur"
-                className="rounded-lg"
-                alt="Omar Moreno photo"
-              />
+              <Photo />
               <Decoration.One className="absolute -bottom-4 -right-10 w-20 h-20 xs:w-28 xs:h-28" />
               <Decoration.Two className="absolute -top-12 -left-10 w-20 h-20 xs:w-28 xs:h-28 rotate-12" />
             </div>

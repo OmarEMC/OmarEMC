@@ -1,0 +1,10 @@
+{
+  "twitter": {
+    "title": "Do you use Twitter?",
+    "description": "Send me a private message or mention me, i'll see it."
+  },
+  "discord": {
+    "title": "Do you use Discord?",
+    "description": "Send me a friend requests and we'll talk :D."
+  }
+}
