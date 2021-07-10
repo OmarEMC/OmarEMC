@@ -25,10 +25,11 @@ module.exports = {
       fontFamily: {
         francis: ['Francois One', ...defaultTheme.fontFamily.sans],
         rubik: ['Rubik', ...defaultTheme.fontFamily.sans]
-      },
-      screens: {
-        xs: '475px'
       }
+    },
+    screens: {
+      xs: '475px',
+      ...defaultTheme.screens
     }
   },
   variants: {
