@@ -12,5 +12,10 @@ export default {
   },
   twitter: {
     handle: '@OmarEMC_'
-  }
+  },
+  additionalLinkTags: [{
+    rel: 'icon',
+    href: 'https://omarems.tech/images/logo.png',
+    type: 'image/png'
+  }]
 }

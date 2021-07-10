@@ -9,6 +9,7 @@ import useTranslation from 'next-translate/useTranslation'
 import Name from '@/components/Name'
 import SocialItem from '@/components/SocialItem'
 import MobileMenu from '@/components/MobileMenu'
+import Logo from './Logo'
 
 export interface HeaderProps {
   showTitle?: boolean;
@@ -22,6 +23,8 @@ function Header ({
   return (
     <header className="flex-initial w-full flex items-center p-3">
       <div className="flex-1 flex items-center gap-2">
+        <Logo />
+
         {showTitle && (
           <Name className="font-semibold text-lg mr-2" />
         )}
