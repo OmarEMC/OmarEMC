@@ -8,6 +8,7 @@ import Layout from '@/components/Layout'
 import Divider from '@/components/Divider'
 import SocialItem from '@/components/SocialItem'
 import Parenthesis from '@/components/Parenthesis'
+import { NextSeo } from 'next-seo'
 
 function Contact () {
   const { t } = useTranslation()
@@ -16,6 +17,11 @@ function Contact () {
     <Layout
       prevPage="/projects"
     >
+      <NextSeo
+        title={t('contact:title')}
+        openGraph={{ title: t('contact:title') }}
+      />
+
       <div className="h-full w-11/12 mx-auto flex items-center justify-center">
         <div className="grid md:grid-cols-12">
           <section className="p-6 xs:hidden md:block md:col-span-4 lg:p-16">
