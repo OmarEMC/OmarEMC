@@ -30,7 +30,7 @@ function Footer ({
           </Link>
         )}
         {prevPage && nextPage && (
-          <div className="hidden md:block text-gray-600 font-bold mx-2">-</div>
+          <div className="hidden md:!block text-gray-600 font-bold mx-2">-</div>
         )}
         {nextPage && (
           <Link href={nextPage} passHref>

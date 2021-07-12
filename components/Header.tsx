@@ -43,7 +43,7 @@ function Header ({
           <MobileMenu open={open} onClose={() => setOpen(false)} />
         </section>
 
-        <section className="hidden sm:flex sm:gap-1">
+        <section className="hidden sm:!flex sm:gap-1">
           <span className="text-xl py-1 text-primary-400 font-bold">{'{'}</span>
           <NavLinks />
           <span className="text-xl py-1 text-primary-400 font-bold">{'}'}</span>
