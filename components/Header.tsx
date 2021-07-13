@@ -33,6 +33,8 @@ function Header ({
         <motion.div layoutId="social" className="flex gap-2 z-10">
           <SocialItem title="Twitter" icon={FiTwitter} link="https://twitter.com/OmarEMC_" />
           <SocialItem title="Github" icon={FiGithub} link="https://github.com/OmarEMC" />
+
+          <ThemeChanger />
         </motion.div>
       </div>
 
@@ -45,9 +47,6 @@ function Header ({
         </section>
 
         <section className="hidden sm:!flex sm:items-center sm:gap-1">
-          <div className="mx-1">
-            <ThemeChanger />
-          </div>
           <span className="text-xl py-1 text-primary-400 font-bold">{'{'}</span>
           <NavLinks />
           <span className="text-xl py-1 text-primary-400 font-bold">{'}'}</span>
