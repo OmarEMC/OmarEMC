@@ -1,5 +1,6 @@
 {
   "title": "Mis Proyectos",
   "description": "Estos proyectos provienen de mis repositorios de github, github es la plataforma donde alojo todos mis repositorios personales, pero también he trabajado con bitbucket y git flow.",
-  "no-projects": "Quizás deberías volver más tarde (todavía no hay ningún proyecto)."
+  "no-projects": "Quizás deberías volver más tarde (todavía no hay ningún proyecto).",
+  "private-title": "Código privado"
 }

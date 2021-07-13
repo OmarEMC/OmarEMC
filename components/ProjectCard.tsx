@@ -25,9 +25,15 @@ function ProjectCard ({ project, className }: ProjectCardProps) {
       title={project.archived ? 'Archived project' : undefined}
     >
       <header className="flex-initial flex items-center">
-        <Link href={project.html_url} title="View Project" className="text-xl flex items-center gap-2 flex-initial">
-          <FiLink /> {project.name}
-        </Link>
+        {!project.private
+          ? (
+            <Link href={project.html_url} title="View Project" className="text-xl flex items-center gap-2 flex-initial">
+              <FiLink /> {project.name}
+            </Link>
+          )
+          : (
+            <p className="font-medium text-xl flex items-center gap-2 flex-initial">{project.name}</p>
+          )}
         <div className="flex-1" />
         <div className="flex-initial flex gap-1 items-center text-lg" title="Stars">
           <FiStar className="text-primary-500" />

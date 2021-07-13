@@ -40,10 +40,9 @@ const handler = nc<NextApiRequest, NextApiResponse>({
   .get(async (_req, res) => {
     const repos = await octokit.request('GET /user/repos', {
       per_page: 15,
-      visibility: 'public',
+      affiliation: 'organization_member,owner',
       sort: 'pushed'
     })
-
     const headers = ['x-ratelimit-limit', 'x-ratelimit-remaining', 'x-ratelimit-reset']
     headers.forEach((header) => {
       res.setHeader(header, repos.headers[header]!)
@@ -55,7 +54,9 @@ const handler = nc<NextApiRequest, NextApiResponse>({
       })
     })
 
-    return res.status(200).json(repos.data)
+    return res.status(200).json(
+      repos.data.filter((repo) => ((repo.private && repo.homepage) || (!repo.private)))
+    )
   })
 
 export default handler

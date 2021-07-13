@@ -6,6 +6,7 @@ import Title from '@/components/Title'
 import Layout from '@/components/Layout'
 import ProjectCard from '@/components/ProjectCard'
 import RepositoryInterface from '@/utils/RepoInterface'
+import Divider from '@/components/Divider'
 
 interface ProjectsPageProps {
   projects: RepositoryInterface[];
@@ -54,13 +55,29 @@ function Projects ({ projects, error }: InferGetStaticPropsType<typeof getStatic
         <Title className="text-5xl">{t('projects:title')}</Title>
         <p className="mt-2 text-lg text-gray-700 font-medium font-rubik dark:text-gray-300">{t('projects:description')}</p>
 
-        <div className="mt-4 grid gap-4 sm:grid-cols-12">
-          {projects && projects.length > 0 && (
-            projects.map((project) => (
-              <ProjectCard project={project} key={project.name} className="sm:col-span-6 lg:col-span-4" />
-            ))
-          )}
-        </div>
+        <section>
+          <div className="mt-4 grid gap-4 sm:grid-cols-12">
+            {projects && projects.length > 0 && (
+              projects.filter((project) => !project.private).map((project) => (
+                <ProjectCard project={project} key={project.name} className="sm:col-span-6 lg:col-span-4" />
+              ))
+            )}
+          </div>
+        </section>
+
+        <Divider />
+
+        <section>
+          <Title className="text-5xl">{t('projects:private-title')}</Title>
+
+          <div className="mt-4 grid gap-4 sm:grid-cols-12">
+            {projects && projects.length > 0 && (
+              projects.filter((project) => project.private).map((project) => (
+                <ProjectCard project={project} key={project.name} className="sm:col-span-6 lg:col-span-4" />
+              ))
+            )}
+          </div>
+        </section>
 
         {(!projects || !(projects.length > 0)) && !error && (
           <h3 className="w-full underline text-center text-2xl text-primary-500 font-medium font-rubik">
