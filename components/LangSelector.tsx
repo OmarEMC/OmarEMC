@@ -49,7 +49,7 @@ function LangSelector () {
   return (
     <div className="w-full lg:max-w-sm mx-3" ref={containerRef}>
       <div className="relative">
-        <button className="flex items-center px-4 bg-white border border-gray-800 focus:outline-none" onClick={() => setShow(!show)}>
+        <button className="flex items-center px-4 font-medium bg-white border border-gray-800 focus:outline-none dark:bg-gray-500 dark:hover:bg-gray-600" onClick={() => setShow(!show)}>
           <img
             width="20"
             height="20"
@@ -63,7 +63,7 @@ function LangSelector () {
         <AnimatePresence>
           {show && (
             <motion.div
-              className="origin-bottom border-2 border-white shadow-xl rounded-lg w-full bg-gray-200 md:w-screen md:max-w-sm absolute bottom-8 left-0"
+              className="origin-bottom border-2 border-white shadow-xl rounded-lg w-full bg-gray-200 md:w-screen md:max-w-sm absolute bottom-8 left-0 dark:bg-gray-600 dark:border-gray-400"
               initial="initial"
               animate="animate"
               exit="exit"
@@ -73,7 +73,7 @@ function LangSelector () {
                 <Link href={router.route} locale={lng} key={lng} passHref>
                   <a
                     className={clsx(
-                      'p-2 block font-semibold hover:bg-gray-300',
+                      'p-2 block font-semibold hover:bg-gray-300 dark:hover:bg-gray-500',
                       {
                         'font-bold': lang === lng
                       }

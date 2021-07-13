@@ -52,7 +52,7 @@ function Projects ({ projects, error }: InferGetStaticPropsType<typeof getStatic
 
       <div className="w-11/12 mx-auto">
         <Title className="text-5xl">{t('projects:title')}</Title>
-        <p className="mt-2 text-lg text-gray-700 font-medium font-rubik">{t('projects:description')}</p>
+        <p className="mt-2 text-lg text-gray-700 font-medium font-rubik dark:text-gray-300">{t('projects:description')}</p>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-12">
           {projects && projects.length > 0 && (

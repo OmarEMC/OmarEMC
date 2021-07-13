@@ -7,7 +7,7 @@ function Link ({ href, className, children, ...props }: AnchorHTMLAttributes<HTM
       href={href}
       target="_blank"
       rel="noreferrer noopener"
-      className={clsx('text-gray-700 font-francis font-medium hover:text-gray-800 hover:underline', className)}
+      className={clsx('text-gray-700 font-francis font-medium hover:text-gray-800 hover:underline dark:text-gray-200 dark:hover:text-gray-300', className)}
       {...props}
     >
       {children}

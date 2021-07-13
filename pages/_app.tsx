@@ -3,6 +3,7 @@ import 'focus-visible'
 import { AppProps } from 'next/app'
 import { DefaultSeo } from 'next-seo'
 import { useRouter } from 'next/router'
+import { ThemeProvider } from 'next-themes'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 
 import '@/styles/global.css'
@@ -21,9 +22,11 @@ function App ({ Component, pageProps }: AppProps) {
     <AnimateSharedLayout>
       <DefaultSeo {...SEO} />
 
-      <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete} initial={false}>
-        <Component {...pageProps} key={router.route} />
-      </AnimatePresence>
+      <ThemeProvider attribute="class" defaultTheme="light">
+        <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete} initial={false}>
+          <Component {...pageProps} key={router.route} />
+        </AnimatePresence>
+      </ThemeProvider>
     </AnimateSharedLayout>
   )
 }

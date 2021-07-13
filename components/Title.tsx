@@ -3,7 +3,7 @@ import { HTMLAttributes } from 'react'
 
 function Title ({ className, children, ...props }: HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h3 className={clsx('font-medium font-francis underline bg-clip-text text-gray-900', className)} {...props}>
+    <h3 className={clsx('font-medium font-francis underline bg-clip-text text-gray-900 dark:text-gray-200', className)} {...props}>
       {children}
     </h3>
   )

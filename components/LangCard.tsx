@@ -12,7 +12,7 @@ function LangCard ({ lang, className }: LangCardProps) {
 
   return (
     <div
-      className={clsx('flex transition duration-300 relative overflow-hidden bg-white shadow-md rounded-lg p-3 md:p-4 md:border-2 hover:shadow-lg', className)}
+      className={clsx('flex transition duration-300 relative overflow-hidden bg-white shadow-md rounded-lg p-3 md:p-4 md:border-2 hover:shadow-lg dark:bg-gray-600', className)}
       style={{
         borderColor: lang.style?.border || '#ffffff',
         opacity: lang.style?.opacity || 1
@@ -29,7 +29,7 @@ function LangCard ({ lang, className }: LangCardProps) {
         <a href={lang.link} target="_blank" rel="noreferrer noopener" className="text-3xl font-semibold md:ml-4 hover:underline">
           {lang.name}
         </a>
-        <span className="text-2xl text-right flex-1 relative font-medium text-gray-600 px-2 sm:flex-initial md:mr-4">
+        <span className="text-2xl text-right flex-1 relative font-medium text-gray-600 px-2 sm:flex-initial md:mr-4 dark:text-gray-200">
           {lang.percentage}%
         </span>
       </div>

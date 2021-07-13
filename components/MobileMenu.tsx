@@ -42,7 +42,7 @@ function MobileMenu ({ open, onClose }: MobileMenuProps) {
             duration: 0.6
           }}
           variants={menuVariants}
-          className="fixed z-50 w-full h-full inset-0 bg-white"
+          className="fixed z-50 w-full h-full inset-0 bg-white dark:bg-gray-800"
         >
           <motion.button
             animate={{ rotate: 0, transition: { duration: 1 } }}

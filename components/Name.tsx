@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 function Name ({ className }: { className: string; }) {
   return (
-    <motion.div className={clsx('text-gray-800 font-bold', className)} layoutId="omaremc-title">
+    <motion.div className={clsx('text-gray-800 font-bold dark:text-gray-200', className)} layoutId="omaremc-title">
       Omar
       <span className="text-primary-700">EMC</span>
     </motion.div>

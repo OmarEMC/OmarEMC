@@ -36,7 +36,7 @@ function Home () {
 
             <HomeDescription />
 
-            <div className="text-lg sm:text-xl text-gray-800 font-medium">
+            <div className="text-lg sm:text-xl text-gray-800 font-medium dark:text-gray-300">
               {/* eslint-disable-next-line react/jsx-key */}
               <Trans i18nKey="home:description" components={[<Parenthesis />, <br />]} />
             </div>
@@ -50,7 +50,7 @@ function Home () {
 
         <section className="mt-2">
           <Title id="my-main" className="text-6xl md:text-7xl">{t('home:my-main.title')}</Title>
-          <p className="mt-2 text-lg sm:text-2xl text-gray-800 font-medium">{t('home:my-main.description')}</p>
+          <p className="mt-2 text-lg sm:text-2xl text-gray-800 font-medium dark:text-gray-300">{t('home:my-main.description')}</p>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-4">
             {['Typescript', 'ReactJS', 'NextJS', 'TailwindCSS', 'Sass'].map((l) => (

@@ -10,6 +10,7 @@ import Name from '@/components/Name'
 import SocialItem from '@/components/SocialItem'
 import MobileMenu from '@/components/MobileMenu'
 import Logo from './Logo'
+import ThemeChanger from './ThemeChanger'
 
 export interface HeaderProps {
   showTitle?: boolean;
@@ -43,7 +44,10 @@ function Header ({
           <MobileMenu open={open} onClose={() => setOpen(false)} />
         </section>
 
-        <section className="hidden sm:!flex sm:gap-1">
+        <section className="hidden sm:!flex sm:items-center sm:gap-1">
+          <div className="mx-1">
+            <ThemeChanger />
+          </div>
           <span className="text-xl py-1 text-primary-400 font-bold">{'{'}</span>
           <NavLinks />
           <span className="text-xl py-1 text-primary-400 font-bold">{'}'}</span>
@@ -69,7 +73,7 @@ function NavLink ({
       <a className={clsx(
         'font-semibold text-lg transition px-2 py-1 active:bg-gray-600 hover:bg-gray-800 hover:text-white',
         {
-          'font-bold underline text-primary-800': router.pathname.split('/')[1] === href.split('/')[1]
+          'font-bold underline text-primary-800 dark:text-primary-600': router.pathname.split('/')[1] === href.split('/')[1]
         }, className
       )}>
         {children}

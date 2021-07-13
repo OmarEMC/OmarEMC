@@ -30,7 +30,7 @@ function Contact () {
           <section className="md:col-span-8 md:py-12">
             <div className="selection:bg-blue-400">
               <Title className="text-3xl sm:text-5xl">{t('contact:twitter.title')}</Title>
-              <p className="py-2 text-lg font-medium text-gray-700 sm:text-xl">{t('contact:twitter.description')}</p>
+              <p className="py-2 text-lg font-medium text-gray-700 sm:text-xl dark:text-gray-300">{t('contact:twitter.description')}</p>
               <SocialItem user="OmarEMC_" title="Twitter" icon={FiTwitter} link="https://twitter.com/OmarEMC_" />
             </div>
 
@@ -38,7 +38,7 @@ function Contact () {
 
             <div className="selection:bg-indigo-400">
               <Title className="text-3xl sm:text-5xl">{t('contact:discord.title')}</Title>
-              <p className="py-2 text-lg font-medium text-gray-700 sm:text-xl">{t('contact:discord.description')}</p>
+              <p className="py-2 text-lg font-medium text-gray-700 sm:text-xl dark:text-gray-300">{t('contact:discord.description')}</p>
               <div className="flex flex-col justify-center items-center gap-2 sm:flex-row sm:justify-start">
                 <SocialItem user="OmarEMC#8320" title="Discord" icon={RiDiscordLine} link="#" />
                 <Parenthesis>(ID: 635222945433649163)</Parenthesis>

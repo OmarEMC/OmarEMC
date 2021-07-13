@@ -18,7 +18,7 @@ function ProjectCard ({ project, className }: ProjectCardProps) {
   return (
     <div
       className={clsx(
-        'flex flex-col rounded-lg py-3 px-6 bg-white transition-shadow duration-300 shadow-sm hover:shadow-md',
+        'flex flex-col rounded-lg py-3 px-6 bg-white transition-shadow duration-300 shadow-sm hover:shadow-md dark:bg-gray-600',
         className,
         { 'border border-yellow-400 opacity-90': project.archived }
       )}
@@ -36,7 +36,7 @@ function ProjectCard ({ project, className }: ProjectCardProps) {
       </header>
 
       <main className="flex-1">
-        <p className="text-gray-600 font-medium">
+        <p className="text-gray-600 font-medium dark:text-gray-200">
           {project.description}
         </p>
       </main>
@@ -49,7 +49,7 @@ function ProjectCard ({ project, className }: ProjectCardProps) {
           {typeof language === 'string'
             ? (<span title="Used language">{project.language}</span>)
             : (
-              <div className="flex items-center gap-1 text-gray-700" title="Used language">
+              <div className="flex items-center gap-1 text-gray-700 dark:text-gray-300" title="Used language">
                 <span className="inline-block rounded-full w-3 h-3" style={{
                   backgroundColor: language.style?.border || '#000000'
                 }} />

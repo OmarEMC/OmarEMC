@@ -18,7 +18,7 @@ function HomeDescription () {
           {t('developer')}
         </span>
       )}.
-      <hr />
+      <hr className="dark:mt-1" />
     </div>
   )
 }
