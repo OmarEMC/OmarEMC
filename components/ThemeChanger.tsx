@@ -15,7 +15,7 @@ function ThemeChanger () {
   const [mounted, setMounted] = useState(false)
 
   const isDark = theme === 'dark'
-  const className = clsx('p-3 cursor-pointer', {
+  const className = clsx('p-3 cursor-pointer', mounted && {
     'hover:bg-gray-600': isDark,
     'hover:bg-gray-200': !isDark
   })

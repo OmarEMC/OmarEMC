@@ -23,7 +23,7 @@ export const languages: Language[] = [
       border: '#F7DF1E'
     },
     category: 'frontend',
-    percentage: 75,
+    percentage: 80,
     img: '/images/js-logo.png',
     link: 'https://developer.mozilla.org/es/docs/Web/JavaScript'
   },
@@ -66,6 +66,16 @@ export const languages: Language[] = [
     percentage: 95,
     img: '/images/express-no-logo.png',
     link: 'https://expressjs.com'
+  },
+  {
+    name: 'NestJS',
+    style: {
+      border: '#EA2845'
+    },
+    category: 'backend',
+    percentage: 85,
+    img: '/images/nestjs-logo.png',
+    link: 'https://nestjs.com'
   },
   {
     name: 'MongoDB',
@@ -137,7 +147,7 @@ export const languages: Language[] = [
       border: '#3178C6'
     },
     category: 'general',
-    percentage: 75,
+    percentage: 80,
     img: '/images/ts-logo.png',
     link: 'https://www.typescriptlang.org/'
   },

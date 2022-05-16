@@ -53,7 +53,7 @@ function Home () {
           <p className="mt-2 text-lg sm:text-2xl text-gray-800 font-medium dark:text-gray-300">{t('home:my-main.description')}</p>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-4">
-            {['Typescript', 'ReactJS', 'NextJS', 'TailwindCSS', 'Sass'].map((l) => (
+            {['Typescript', 'ReactJS', 'NextJS', 'TailwindCSS', 'Sass', 'NestJS'].map((l) => (
               <LangCard lang={languages.find((lang) => lang.name === l)} className="md:p-0" key={l} />
             ))}
           </div>
