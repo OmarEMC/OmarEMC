@@ -1,7 +1,8 @@
 import clsx from 'clsx'
-import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
-import { FiMoon, FiSun } from 'react-icons/fi'
+import { AnimatePresence, motion } from 'framer-motion'
+import { FiLoader, FiMoon, FiSun } from 'react-icons/fi'
 
 const variants = {
   initial: { y: '-110%' },
@@ -11,41 +12,38 @@ const variants = {
 
 function ThemeChanger () {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
   const isDark = theme === 'dark'
   const className = clsx('p-3 cursor-pointer', {
     'hover:bg-gray-600': isDark,
     'hover:bg-gray-200': !isDark
   })
 
+  useEffect(() => setMounted(true), [])
+
   return (
     <div className="shadow overflow-hidden">
       <AnimatePresence exitBeforeEnter>
-        {isDark && (
-          <motion.div
-            key="theme-dark"
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className={className}
-            onClick={() => setTheme('light')}
-            variants={variants}
-          >
-            <FiMoon />
-          </motion.div>
-        )}
-        {!isDark && (
-          <motion.div
-            key="theme-light"
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className={className}
-            onClick={() => setTheme('dark')}
-            variants={variants}
-          >
-            <FiSun />
-          </motion.div>
-        )}
+        {!mounted
+          ? (
+            <div className={className}>
+              <FiLoader />
+            </div>
+          )
+          : (
+            <motion.div
+              exit="exit"
+              initial="initial"
+              animate="animate"
+              variants={variants}
+              className={className}
+              key={isDark ? 'theme-dark' : 'theme-light'}
+              onClick={() => setTheme(isDark ? 'light' : 'dark')}
+            >
+              {isDark ? <FiMoon /> : <FiSun />}
+            </motion.div>
+          )}
       </AnimatePresence>
     </div>
   )

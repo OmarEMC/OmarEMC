@@ -8,14 +8,14 @@ export default {
     title: 'Omar Moreno',
     description: '¡Hola! Soy Omar Moreno, tengo 16 años y soy desarrollador full stack JavaScript & TypeScript.',
     locale: 'es_CO',
-    url: 'https://omarems.tech/'
+    url: 'https://omaremc.vercel.app/'
   },
   twitter: {
     handle: '@OmarEMC_'
   },
   additionalLinkTags: [{
     rel: 'icon',
-    href: 'https://omarems.tech/images/logo.png',
+    href: 'https://omaremc.vercel.app/images/logo.png',
     type: 'image/png'
   }]
 }

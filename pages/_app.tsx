@@ -4,7 +4,7 @@ import { AppProps } from 'next/app'
 import { DefaultSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { ThemeProvider } from 'next-themes'
-import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 
 import '@/styles/global.css'
 import SEO from '../next-seo.config'
@@ -19,7 +19,7 @@ function App ({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
   return (
-    <AnimateSharedLayout>
+    <>
       <DefaultSeo {...SEO} />
 
       <ThemeProvider attribute="class" defaultTheme="light">
@@ -27,7 +27,7 @@ function App ({ Component, pageProps }: AppProps) {
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>
       </ThemeProvider>
-    </AnimateSharedLayout>
+    </>
   )
 }
 

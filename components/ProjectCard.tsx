@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import { useMemo } from 'react'
-import TimeAgo from 'timeago-react'
 import { FiArrowUpRight, FiLink, FiStar } from 'react-icons/fi'
 
 import Link from '@/components/Link'
@@ -49,7 +48,7 @@ function ProjectCard ({ project, className }: ProjectCardProps) {
 
       <footer className="flex-initial flex flex-col gap-2 mt-2 md:flex-row">
         <section className="flex-1">
-          <TimeAgo datetime={project.pushed_at} title="Updated at" />
+          {project.pushed_at}
         </section>
         <section className="flex-initial flex gap-2">
           {typeof language === 'string'
