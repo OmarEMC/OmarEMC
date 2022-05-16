@@ -20,9 +20,9 @@ function Layout ({
 }: LayoutProps) {
   return (
     <motion.div
+      exit="exit"
       initial="initial"
       animate="animate"
-      exit="exit"
       className={clsx('flex flex-col w-full h-full relative', className)}
     >
       <Header {...headerProps} />

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { FiLoader, FiMoon, FiSun } from 'react-icons/fi'
 

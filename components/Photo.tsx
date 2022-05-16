@@ -13,8 +13,8 @@ function Photo () {
         src={photo}
         draggable={false}
         placeholder="blur"
-        className="rounded-lg"
         alt="Omar Moreno photo"
+        className="rounded-lg h-40 w-40"
       />
     </motion.div>
   )

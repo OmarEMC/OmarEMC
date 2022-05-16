@@ -29,7 +29,18 @@ const fadeIn: AnimationVariants = {
   }
 }
 
+const langAnimation: AnimationVariants = {
+  initial: {
+    width: 0
+  },
+  animate: {
+    width: 'max-content'
+  },
+  exit: {}
+}
+
 export {
   fadeIn,
-  scaleY
+  scaleY,
+  langAnimation
 }

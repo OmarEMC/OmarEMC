@@ -56,7 +56,7 @@ function ProjectCard ({ project, className }: ProjectCardProps) {
             : (
               <div className="flex items-center gap-1 text-gray-700 dark:text-gray-300" title="Used language">
                 <span className="inline-block rounded-full w-3 h-3" style={{
-                  backgroundColor: language.style?.border || '#000000'
+                  backgroundColor: language.color || '#000000'
                 }} />
                 <span className="inline-block font-medium">{language.name}</span>
               </div>
