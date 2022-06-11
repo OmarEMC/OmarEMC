@@ -1,6 +1,7 @@
 {
   "title": "My Projects",
-  "description": "These projects come from my github repositories, github is the platform where i host all my personal repositories, but i have also worked with bitbucket and git flow.",
+  "description": "These projects come from my github repositories, github is the platform where i host all my personal repositories, but i have also worked with bitbucket and git flow.<br></br>I also use <supabase></supabase> to store extra information for each project.",
   "no-projects": "Maybe you should come back later (there are not any project yet).",
-  "private-title": "Private code"
+  "private-title": "Private code",
+  "technologies-title": "Technologies used"
 }

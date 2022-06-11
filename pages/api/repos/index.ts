@@ -41,7 +41,7 @@ const handler = nc<NextApiRequest, NextApiResponse>({
     const repos = await octokit.request('GET /user/repos', {
       per_page: 15,
       affiliation: 'organization_member,owner',
-      sort: 'pushed'
+      sort: 'created',
     })
     const headers = ['x-ratelimit-limit', 'x-ratelimit-remaining', 'x-ratelimit-reset']
     headers.forEach((header) => {

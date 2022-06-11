@@ -8,6 +8,7 @@ import { AnimatePresence } from 'framer-motion'
 
 import '@/styles/global.css'
 import SEO from '../next-seo.config'
+import AppContextProvider from 'lib/context'
 
 function handleExitComplete () {
   if (typeof window !== 'undefined') {
@@ -24,7 +25,9 @@ function App ({ Component, pageProps }: AppProps) {
 
       <ThemeProvider attribute="class" defaultTheme="light">
         <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete} initial={false}>
-          <Component {...pageProps} key={router.route} />
+          <AppContextProvider>
+            <Component {...pageProps} key={router.route} />
+          </AppContextProvider>
         </AnimatePresence>
       </ThemeProvider>
     </>
