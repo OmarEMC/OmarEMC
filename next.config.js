@@ -2,6 +2,6 @@ const nextTranslate = require('next-translate')
 
 module.exports = nextTranslate({
   images: {
-    domains: ['cfavlzzchagtgykndlob.supabase.co'],
-  },
+    domains: ['cfavlzzchagtgykndlob.supabase.co']
+  }
 })
