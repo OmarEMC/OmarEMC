@@ -46,6 +46,7 @@ function ProjectCard ({ repo, project, loading, className, ...props }: ProjectCa
           {project?.image && (
             <Image
               layout="fill"
+              priority={true}
               draggable={false}
               placeholder="blur"
               src={project.image}
