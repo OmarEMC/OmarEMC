@@ -16,7 +16,7 @@ interface ProjectsPageProps {
 
 function Projects ({ repos, error }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation()
-  const { projects } = useProjects();
+  const { projects, error: projectsError } = useProjects();
 
   return (
     <Layout prevPage="/" nextPage="/contact">
@@ -50,6 +50,7 @@ function Projects ({ repos, error }: InferGetStaticPropsType<typeof getStaticPro
                   repo={repo}
                   key={repo.id}
                   nextRepo={repos[i + 1]}
+                  loading={!projects && !projectsError}
                   project={projects?.find((project) => project.id === repo.name)}
                 />
               ))

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { useMemo } from 'react'
-import { FiArrowUpRight, FiLink, FiStar } from 'react-icons/fi'
+import { FiArrowUpRight, FiLink, FiLoader, FiStar } from 'react-icons/fi'
 
 import { languages } from '@/utils/static-data'
 import { Project } from '@/utils/interfaces/Project'
@@ -10,11 +10,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 interface ProjectCardProps extends React.HTMLAttributes<HTMLDivElement> {
+  loading?: boolean;
   project?: Project;
   repo: RepositoryInterface;
 }
 
-function ProjectCard ({ repo, project, className, ...props }: ProjectCardProps) {
+function ProjectCard ({ repo, project, loading, className, ...props }: ProjectCardProps) {
   const { lang, t } = useTranslation()
   const language = useMemo(() => languages.find((lang) => lang.name.toLowerCase() === repo.language.toLowerCase()) || repo.language, [repo.language])
   const langKeys = useMemo(() => ({
@@ -36,7 +37,12 @@ function ProjectCard ({ repo, project, className, ...props }: ProjectCardProps) 
       title={repo.archived ? 'Archived project' : undefined}
     >
       <header>
-        <section className={project?.image ? "mt-3 relative w-full aspect-video rounded-lg border-2 border-gray-300 dark:border-none" : "hidden"}>
+        <section className={!loading && !project?.image ? "hidden" : "mt-3 relative w-full aspect-video rounded-lg border-2 border-gray-300 dark:border-none"}>
+          {loading && (
+            <div className="w-full h-full flex flex-col justify-center items-center">
+              <FiLoader className="text-5xl animate-spin" /> <p className="font-medium">Loading image...</p>
+            </div>
+          )}
           {project?.image && (
             <Image
               layout="fill"
