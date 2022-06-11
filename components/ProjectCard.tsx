@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import { useMemo } from 'react'
-import { FiArrowUpRight, FiLink, FiLoader, FiStar } from 'react-icons/fi'
+import React, { useMemo } from 'react'
+import { FiLink, FiLoader, FiStar } from 'react-icons/fi'
 
 import { languages } from '@/utils/static-data'
 import { Project } from '@/utils/interfaces/Project'
@@ -21,7 +21,7 @@ function ProjectCard ({ repo, project, loading, className, ...props }: ProjectCa
   const langKeys = useMemo(() => ({
     title: `${lang}_title` as keyof Project,
     learned: `${lang}_learned` as keyof Project,
-    description: `${lang}_description` as keyof Project,
+    description: `${lang}_description` as keyof Project
   }), [lang])
 
   const createdAt = useMemo(() => new Date(repo.created_at).toLocaleString(), [repo.created_at])
@@ -37,7 +37,7 @@ function ProjectCard ({ repo, project, loading, className, ...props }: ProjectCa
       title={repo.archived ? 'Archived project' : undefined}
     >
       <header>
-        <section className={!loading && !project?.image ? "hidden" : "mt-3 relative w-full aspect-video rounded-lg border-2 border-gray-300 dark:border-none"}>
+        <section className={!loading && !project?.image ? 'hidden' : 'mt-3 relative w-full aspect-video rounded-lg border-2 border-gray-300 dark:border-none'}>
           {loading && (
             <div className="w-full h-full flex flex-col justify-center items-center">
               <FiLoader className="text-5xl animate-spin" /> <p className="font-medium">Loading image...</p>
@@ -56,7 +56,7 @@ function ProjectCard ({ repo, project, loading, className, ...props }: ProjectCa
           )}
         </section>
 
-        <section className={clsx("flex-initial flex items-center", project?.image && "mt-4")}>
+        <section className={clsx('flex-initial flex items-center', project?.image && 'mt-4')}>
           <Link passHref href={`/project/${project?.id || repo.name}`} title="View Project">
             <a className="font-bold text-xl flex items-center gap-2 flex-initial transition-colors hover:text-gray-400">
               <FiLink /> {project?.id || repo.name}

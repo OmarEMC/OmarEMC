@@ -16,7 +16,7 @@ interface ProjectsPageProps {
 
 function Projects ({ repos, error }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation()
-  const { projects, error: projectsError } = useProjects();
+  const { projects, error: projectsError } = useProjects()
 
   return (
     <Layout prevPage="/" nextPage="/contact">
@@ -92,7 +92,7 @@ export const getStaticProps: GetStaticProps<ProjectsPageProps> = async () => {
 
   return {
     props: {
-      repos: (data as RepositoryInterface[]).sort((a, b) => new Date(a.created_at) < new Date(b.created_at) ? -1 : 1),
+      repos: (data as RepositoryInterface[]).sort((a, b) => new Date(a.created_at) < new Date(b.created_at) ? -1 : 1)
     },
     revalidate: 120
   }

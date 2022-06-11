@@ -1,7 +1,7 @@
-import { createContext, Dispatch, SetStateAction, useState } from 'react'
-import { PostgrestError } from '@supabase/supabase-js';
+import { PostgrestError } from '@supabase/supabase-js'
+import React, { createContext, Dispatch, SetStateAction, useState } from 'react'
 
-import { Project } from '@/utils/interfaces/Project';
+import { Project } from '@/utils/interfaces/Project'
 
 interface AppContextT {
   projects: {
@@ -21,7 +21,7 @@ const defaultContext: [AppContextT, DispatchT] = [{
 
 export const AppContext = createContext<[AppContextT, DispatchT]>(defaultContext)
 
-export default function AppContextProvider({ children }: { children: React.ReactNode }) {
+export default function AppContextProvider ({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<AppContextT>(defaultContext[0])
 
   return (
@@ -31,6 +31,6 @@ export default function AppContextProvider({ children }: { children: React.React
       {children}
     </AppContext.Provider>
   )
-} 
+}
 
 AppContextProvider.displayName = 'AppContextProvider'

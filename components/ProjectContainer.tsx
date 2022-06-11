@@ -1,14 +1,14 @@
-import clsx from "clsx";
-import Link from "next/link";
-import Xarrow from "react-xarrows"
-import React, { useMemo } from "react";
-import { FiArrowUpRight } from "react-icons/fi";
-import useTranslation from "next-translate/useTranslation";
+import clsx from 'clsx'
+import Link from 'next/link'
+import Xarrow from 'react-xarrows'
+import React, { useMemo } from 'react'
+import { FiArrowUpRight } from 'react-icons/fi'
+import useTranslation from 'next-translate/useTranslation'
 
-import ProjectCard from "./ProjectCard";
-import { getMonthsDiff } from "@/utils/index";
-import { Project } from "@/utils/interfaces/Project";
-import RepositoryInterface from "@/utils/interfaces/RepoInterface";
+import ProjectCard from './ProjectCard'
+import { getMonthsDiff } from '@/utils/index'
+import { Project } from '@/utils/interfaces/Project'
+import RepositoryInterface from '@/utils/interfaces/RepoInterface'
 
 interface ProjectContainerProps {
   index: number;
@@ -18,14 +18,14 @@ interface ProjectContainerProps {
   nextRepo?: RepositoryInterface;
 }
 
-export function ProjectContainer({
+export function ProjectContainer ({
   repo,
   index,
   project,
   loading,
-  nextRepo,
+  nextRepo
 }: ProjectContainerProps) {
-  const monthsDiff = useMemo(() => nextRepo ? `${getMonthsDiff(new Date(repo.created_at), new Date(nextRepo.created_at)).toFixed(1)} month(s) later` : '', [repo, nextRepo]);
+  const monthsDiff = useMemo(() => nextRepo ? `${getMonthsDiff(new Date(repo.created_at), new Date(nextRepo.created_at)).toFixed(1)} month(s) later` : '', [repo, nextRepo])
 
   return (
     <React.Fragment>
@@ -40,7 +40,7 @@ export function ProjectContainer({
       />
 
       {index % 2 === 0 && (<Fill loading={loading} link={repo.homepage} i={index} project={project} />)}
-      
+
       {nextRepo && (
         <Xarrow
           start={`project-card-${repo.name.toLowerCase()}`}
@@ -48,7 +48,7 @@ export function ProjectContainer({
           labels={{
             middle: (
               <span className="hidden xl:block">{monthsDiff}</span>
-            ),
+            )
           }}
         />
       )}
@@ -56,21 +56,21 @@ export function ProjectContainer({
   )
 }
 
-function Fill({ project, loading, i, link }: Pick<ProjectContainerProps, 'project'> & { i: number; link: string; loading?: boolean }) {
+function Fill ({ project, loading, i, link }: Pick<ProjectContainerProps, 'project'> & { i: number; link: string; loading?: boolean }) {
   const { lang } = useTranslation()
   const langKeys = useMemo(() => ({
     title: `${lang}_title` as keyof Project,
-    learned: `${lang}_learned` as keyof Project,
+    learned: `${lang}_learned` as keyof Project
   }), [lang])
 
   return (
     <>
-      <div className={clsx(i % 2 === 0 && "hidden xl:block", "flex flex-col justify-center sm:col-span-6 md:col-span-3 lg:col-span-6 xl:col-span-4 relative z-10 sm:p-8 xl:p-0")}>
+      <div className={clsx(i % 2 === 0 && 'hidden xl:block', 'flex flex-col justify-center sm:col-span-6 md:col-span-3 lg:col-span-6 xl:col-span-4 relative z-10 sm:p-8 xl:p-0')}>
         {i % 2 !== 0 && (
           <FillContent loading={loading} title={project?.[langKeys.title] as string} learned={project?.[langKeys.learned] as string} link={link} />
         )}
       </div>
-      <div className={clsx(i % 2 !== 0 && "hidden xl:block", "flex flex-col justify-center sm:col-span-6 md:col-span-3 lg:col-span-6 xl:col-span-4 relative z-10 sm:p-8 xl:p-0")}>
+      <div className={clsx(i % 2 !== 0 && 'hidden xl:block', 'flex flex-col justify-center sm:col-span-6 md:col-span-3 lg:col-span-6 xl:col-span-4 relative z-10 sm:p-8 xl:p-0')}>
         {i % 2 === 0 && (
           <FillContent loading={loading} title={project?.[langKeys.title] as string} learned={project?.[langKeys.learned] as string} link={link} />
         )}
@@ -79,11 +79,11 @@ function Fill({ project, loading, i, link }: Pick<ProjectContainerProps, 'projec
   )
 }
 
-function FillContent({
+function FillContent ({
   link,
   title,
   learned,
-  loading,
+  loading
 }: {
   link?: string;
   title?: string;

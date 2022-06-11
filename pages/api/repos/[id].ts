@@ -20,7 +20,7 @@ const selectedFields = [
   'stargazers_count',
   'pushed_at',
   'created_at',
-  'updated_at',
+  'updated_at'
 ]
 
 const handler = nc<NextApiRequest, NextApiResponse>({
@@ -41,7 +41,7 @@ const handler = nc<NextApiRequest, NextApiResponse>({
   .get(async (req, res) => {
     const repo = await octokit.request('GET /repos/{owner}/{repo}', {
       repo: String(req.query.id),
-      owner: process.env.GITHUB_REPO_OWNER || 'OmarEMC',
+      owner: process.env.GITHUB_REPO_OWNER || 'OmarEMC'
     })
 
     const headers = ['x-ratelimit-limit', 'x-ratelimit-remaining', 'x-ratelimit-reset']
