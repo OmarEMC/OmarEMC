@@ -170,31 +170,49 @@ function ProjectPage ({ project, repo, locale }: ProjectPageProps) {
 }
 
 export const getStaticPaths: GetStaticPaths<{ id: string }> = async ({ locales }) => {
-  const { data } = await ReposAPI.getAll()
+  try {
+    const { data } = await ReposAPI.getAll()
 
-  const paths = locales
-    ?.filter((locale: string) => locale !== 'default')
-    .map((locale) => {
-      return data!.map((repo) => ({ locale, params: { id: repo.name } }))
-    })
+    const paths = locales
+      ?.filter((locale: string) => locale !== 'default')
+      .map((locale) => {
+        return data!.map((repo) => ({ locale, params: { id: repo.name } }))
+      })
 
-  return {
-    paths: data ? paths!.flat() : [],
-    fallback: false
+    return {
+      paths: data ? paths!.flat() : [],
+      fallback: false
+    }
+  } catch (error) {
+    return {
+      paths: [],
+      fallback: false
+    }
   }
 }
 
 export const getStaticProps: GetStaticProps<ProjectPageProps, { id: string }> = async ({ params, locale }) => {
-  const { data: repo } = await ReposAPI.getById(params!.id)
-  const { project } = await ProjectsAPI.getById(params!.id)
+  try {
+    const { data: repo } = await ReposAPI.getById(params!.id)
+    const { project } = await ProjectsAPI.getById(params!.id)
 
-  return {
-    props: {
-      repo: repo!,
-      project: project!,
-      locale: locale!
-    },
-    revalidate: 120
+    return {
+      props: {
+        repo: repo!,
+        project: project!,
+        locale: locale!
+      },
+      revalidate: 120
+    }
+  } catch (error) {
+    return {
+      props: {
+        repo: {} as RepositoryInterface,
+        project: {} as Project,
+        locale: locale!
+      },
+      revalidate: 60
+    }
   }
 }
 

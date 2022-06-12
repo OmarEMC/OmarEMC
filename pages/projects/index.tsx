@@ -26,23 +26,33 @@ function Projects ({ repos, error }: InferGetStaticPropsType<typeof getStaticPro
 }
 
 export const getStaticProps: GetStaticProps<ProjectsPageProps> = async () => {
-  const { data, error } = await ReposAPI.getAll()
+  try {
+    const { data, error } = await ReposAPI.getAll()
 
-  if (!data && error) {
+    if (!data && error) {
+      return {
+        props: {
+          error,
+          repos: []
+        },
+        revalidate: 60
+      }
+    }
+
     return {
       props: {
-        error,
+        repos: data!.sort((a, b) => new Date(a.created_at) < new Date(b.created_at) ? -1 : 1)
+      },
+      revalidate: 120
+    }
+  } catch (error) {
+    return {
+      props: {
+        error: 'Error fetching repos.',
         repos: []
       },
       revalidate: 60
     }
-  }
-
-  return {
-    props: {
-      repos: data!.sort((a, b) => new Date(a.created_at) < new Date(b.created_at) ? -1 : 1)
-    },
-    revalidate: 120
   }
 }
 
