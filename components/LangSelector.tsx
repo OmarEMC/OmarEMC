@@ -63,14 +63,14 @@ function LangSelector () {
         <AnimatePresence>
           {show && (
             <motion.div
-              className="origin-bottom border-2 border-white shadow-xl rounded-lg w-full bg-gray-200 md:w-screen md:max-w-sm absolute bottom-8 left-0 dark:bg-gray-600 dark:border-gray-400"
+              className="origin-bottom border-2 border-white shadow-xl rounded-lg w-full bg-gray-200 md:w-screen md:max-w-sm absolute bottom-8 left-0 dark:bg-gray-600 dark:border-gray-400 z-50"
               initial="initial"
               animate="animate"
               exit="exit"
               variants={scaleY}
             >
               {locales.map((lng) => (
-                <Link href={router.route} locale={lng} key={lng} passHref>
+                <Link href={router.asPath} locale={lng} key={lng} passHref>
                   <a
                     className={clsx(
                       'p-2 block font-semibold hover:bg-gray-300 dark:hover:bg-gray-500',

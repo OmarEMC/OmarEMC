@@ -1,4 +1,5 @@
 import Trans from 'next-translate/Trans'
+import { getStaticProps } from './projects'
 
 import Name from '@/components/Name'
 import Photo from '@/components/Photo'
@@ -8,8 +9,9 @@ import Decoration from '@/components/Decoration'
 import Parenthesis from '@/components/Parenthesis'
 import LangsSection from '@/components/LangsSection'
 import HomeDescription from '@/components/HomeDescription'
+import { ProjectsPage, ProjectsPageProps } from '@/components/ProjectsPage'
 
-function Home () {
+function Home ({ repos, error }: ProjectsPageProps) {
   return (
     <Layout
       nextPage="/projects"
@@ -43,9 +45,11 @@ function Home () {
         <Divider />
 
         {/* Projects */}
+        <ProjectsPage error={error || undefined} repos={(repos || []).sort((a, b) => new Date(a.created_at) < new Date(b.created_at) ? -1 : 1)} />
       </div>
     </Layout>
   )
 }
 
+export { getStaticProps }
 export default Home

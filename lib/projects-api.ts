@@ -12,4 +12,16 @@ export class ProjectsAPI {
       error
     }
   }
+
+  static async getById (id: string) {
+    const { data: project, error } = await supabase
+      .from<Project>('projects')
+      .select('*')
+      .eq('id', id)
+
+    return {
+      project: project?.[0],
+      error
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import React, { useMemo } from 'react'
+import { motion } from 'framer-motion'
 import { FiLink, FiLoader, FiStar } from 'react-icons/fi'
 
 import { languages } from '@/utils/static-data'
@@ -8,6 +9,7 @@ import RepositoryInterface from '@/utils/interfaces/RepoInterface'
 import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
 import Image from 'next/image'
+import { fromNow, limitString } from '../utils'
 
 interface ProjectCardProps extends React.HTMLAttributes<HTMLDivElement> {
   loading?: boolean;
@@ -24,8 +26,6 @@ function ProjectCard ({ repo, project, loading, className, ...props }: ProjectCa
     description: `${lang}_description` as keyof Project
   }), [lang])
 
-  const createdAt = useMemo(() => new Date(repo.created_at).toLocaleString(), [repo.created_at])
-
   return (
     <div
       {...props}
@@ -37,7 +37,11 @@ function ProjectCard ({ repo, project, loading, className, ...props }: ProjectCa
       title={repo.archived ? 'Archived project' : undefined}
     >
       <header>
-        <section className={!loading && !project?.image ? 'hidden' : 'mt-3 relative w-full aspect-video rounded-lg border-2 border-gray-300 dark:border-none'}>
+        <motion.section
+          layoutId={`project-${repo.name}-header-image`}
+          transition={{ type: 'spring', damping: 30, stiffness: 200 }}
+          className={!loading && !project?.image ? 'hidden' : 'mt-3 relative w-full aspect-video rounded-lg border-2 border-gray-300 dark:border-none'}
+        >
           {loading && (
             <div className="w-full h-full flex flex-col justify-center items-center">
               <FiLoader className="text-5xl animate-spin" /> <p className="font-medium">Loading image...</p>
@@ -55,13 +59,17 @@ function ProjectCard ({ repo, project, loading, className, ...props }: ProjectCa
               blurDataURL={project.image}
             />
           )}
-        </section>
+        </motion.section>
 
         <section className={clsx('flex-initial flex items-center', project?.image && 'mt-4')}>
-          <Link passHref href={`/project/${project?.id || repo.name}`} title="View Project">
-            <a className="font-bold text-xl flex items-center gap-2 flex-initial transition-colors hover:text-gray-400">
+          <Link passHref href={`/projects/${project?.id || repo.name}`} title="View Project">
+            <motion.a
+              layoutId={`project-${repo.name}-name`}
+              transition={{ type: 'spring', damping: 30, stiffness: 200 }}
+              className="font-bold text-xl flex items-center gap-2 flex-initial transition-colors hover:text-gray-400"
+            >
               <FiLink /> {project?.id || repo.name}
-            </a>
+            </motion.a>
           </Link>
           <div className="flex-1" />
           <div className="flex-initial flex gap-1 items-center text-lg" title="Stars">
@@ -73,13 +81,13 @@ function ProjectCard ({ repo, project, loading, className, ...props }: ProjectCa
 
       <main className="flex-1">
         <p className="text-gray-600 font-medium dark:text-gray-200">
-          {project ? project[langKeys.description] : repo.description}
+          {limitString(project ? project[langKeys.description] as string : repo.description)}
         </p>
       </main>
 
       <footer className="flex-initial flex flex-col gap-2 mt-2 md:flex-row">
         <section className="flex-1">
-          {createdAt}
+          {fromNow(repo.created_at)}
         </section>
         <section className="flex-initial flex gap-2">
           <div className="flex gap-1" title={t('projects:technologies-title')}>
