@@ -82,7 +82,7 @@ function ProjectPage ({ project, repo, locale }: ProjectPageProps) {
               </motion.div>
             </section>
 
-            <div className="flex gap-4 mt-4">
+            <div className="flex flex-wrap gap-4 mt-4">
               <section className="flex-1 flex gap-2">
                 <motion.div
                   layoutId={`project-${repo.name}-name`}
@@ -134,7 +134,7 @@ function ProjectPage ({ project, repo, locale }: ProjectPageProps) {
 
             <div className="mt-4">
               <p className="text-lg font-bold text-gray-600 dark:text-gray-300"># {t('projects:technologies-title')}</p>
-              <ul className="flex gap-4">
+              <ul className="flex flex-wrap gap-4">
                 {(project.technologies || []).map((tech, index) => (
                   <li key={index} className="flex items-center">
                     <LangCard lang={languages.find((lang) => lang.name.toLowerCase() === tech.toLowerCase()) || tech} />
