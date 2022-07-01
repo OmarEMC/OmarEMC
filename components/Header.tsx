@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { ReactNode, useState } from 'react'
-import { FiGithub, FiMenu, FiTwitter } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiMenu, FiTwitter } from 'react-icons/fi'
 import useTranslation from 'next-translate/useTranslation'
 
 import Name from '@/components/Name'
@@ -33,6 +33,7 @@ function Header ({
         <motion.div layoutId="social" className="flex gap-2 z-10">
           <SocialItem title="Twitter" icon={FiTwitter} link="https://twitter.com/OmarEMC_" />
           <SocialItem title="Github" icon={FiGithub} link="https://github.com/OmarEMC" />
+          <SocialItem title="LinkedIn" icon={FiLinkedin} link="https://linkedin.com/in/omarems" />
 
           <ThemeChanger />
         </motion.div>

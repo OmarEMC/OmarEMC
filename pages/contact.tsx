@@ -1,4 +1,4 @@
-import { FiTwitter } from 'react-icons/fi'
+import { FiLinkedin, FiTwitter } from 'react-icons/fi'
 import { RiDiscordLine } from 'react-icons/ri'
 import useTranslation from 'next-translate/useTranslation'
 
@@ -9,6 +9,7 @@ import Divider from '@/components/Divider'
 import SocialItem from '@/components/SocialItem'
 import Parenthesis from '@/components/Parenthesis'
 import { NextSeo } from 'next-seo'
+import Trans from 'next-translate/Trans'
 
 function Contact () {
   const { t } = useTranslation()
@@ -44,6 +45,11 @@ function Contact () {
                 <Parenthesis>(ID: 635222945433649163)</Parenthesis>
               </div>
             </div>
+
+            <section className="mt-2 flex items-center gap-2 font-medium text-gray-700 dark:text-gray-300">
+              {/* eslint-disable-next-line react/jsx-key */}
+              <Trans i18nKey="contact:linkedin" components={[<SocialItem user="LinkedIn." title="LinkedIn" icon={FiLinkedin} link="https://linkedin.com/in/omarems" />]} />
+            </section>
           </section>
         </div>
       </div>
