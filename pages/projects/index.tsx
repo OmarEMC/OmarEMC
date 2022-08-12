@@ -29,10 +29,11 @@ export const getStaticProps: GetStaticProps<ProjectsPageProps> = async () => {
   try {
     const { data, error } = await ReposAPI.getAll()
 
-    if (!data && error) {
+    if ((!data && error) || !Array.isArray(data)) {
       return {
         props: {
-          error,
+          /* @ts-ignore */
+          error: error || data?.error || 'Unknown error.',
           repos: []
         },
         revalidate: 60
@@ -41,14 +42,14 @@ export const getStaticProps: GetStaticProps<ProjectsPageProps> = async () => {
 
     return {
       props: {
-        repos: data!.sort((a, b) => new Date(a.created_at) < new Date(b.created_at) ? -1 : 1)
+        repos: (data || []).sort((a, b) => new Date(a.created_at) < new Date(b.created_at) ? -1 : 1)
       },
       revalidate: 120
     }
   } catch (error) {
     return {
       props: {
-        error: 'Error fetching repos.',
+        error: (error as any).message || 'Error fetching repos.',
         repos: []
       },
       revalidate: 60
